@@ -7,5 +7,7 @@ target 'MVPHomework' do
 
   # Pods for MVPHomework
   pod 'SwiftyJSON'
+  pod 'Kingfisher'
+  pod 'Alamofire'
 
 end
