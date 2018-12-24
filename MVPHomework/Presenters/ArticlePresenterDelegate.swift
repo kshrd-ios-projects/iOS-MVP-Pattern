@@ -1,0 +1,13 @@
+//
+//  ArticlePresenterDelegate.swift
+//  MVPHomework
+//
+//  Created by Sreng Khorn on 24/12/18.
+//  Copyright © 2018 Sreng Khorn. All rights reserved.
+//
+
+import Foundation
+
+protocol ArticlePresenterDelegate {
+    func responseArticles(articles: [Article])
+}
