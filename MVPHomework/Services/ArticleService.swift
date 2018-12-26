@@ -104,30 +104,8 @@ class ArticleService {
         }
     }
     
-    //Upload File
-//    Alamofire.upload(multipartFormData: { (d) in
-//    d.append((image.jpegData(compressionQuality: 0.2))!, withName: "FILE", fileName: ".jpg", mimeType: "image/jpeg")
-//    }, to: "http://api-ams.me/v1/api/uploadfile/single", method : .post, headers : header) { (result) in
-//    switch result {
-//    case .success(request: let upload, _, _):
-//    upload.responseJSON(completionHandler: { (response) in
-//    if let data = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String:Any]{
-//    // Add to Article
-//    let parameters: [String: Any] = [
-//    "TITLE": article.title!,
-//    "DESCRIPTION": article.content!,
-//    "IMAGE": data["DATA"] as! String
-//    ]
-//    Alamofire.request(url, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: self.header).responseJSON { (res) in
-//    print(res.result.value!)
-//    self.delegate?.didAddArticle()
-//    }
-//    }
-//    })
-//    case .failure(let e):
-//    print(e)
-//    print("Upload failed!!!")
-//    }
-//    }
+    func updateArticle(id: Int) {
+        let url = "\(ARTICLE_BASE_URL)/\(id)"
+    }
 }
 

@@ -29,8 +29,6 @@ class ViewController: UIViewController, ArticlePresenterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.blue
-        
         refresher()
         articlePresenter = ArticlePresenter()
         articlePresenter?.delegate = self
@@ -92,12 +90,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let modifyAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            self.performSegue(withIdentifier: "", sender: self)
+        let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self.performSegue(withIdentifier: "editFormSegue", sender: self)
         })
-        modifyAction.backgroundColor = .blue
+        editAction.image = UIImage(named: "icons8-edit-file-filled-32")
+        editAction.backgroundColor = .blue
         
-        return UISwipeActionsConfiguration(actions: [modifyAction])
+        return UISwipeActionsConfiguration(actions: [editAction])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -110,6 +109,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         deleteAction.image = UIImage(named: "icons8-trash-filled-32")
         deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showArticleSegue", sender: self)
+        
+        ShowViewController.post = posts[indexPath.row]
     }
     
     func responseDelete(message: String) {

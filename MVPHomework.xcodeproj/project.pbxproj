@@ -23,6 +23,8 @@
 		D3D99D1F21D207210002C34C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D99D1D21D207210002C34C /* TableViewCell.xib */; };
 		D3D99D2121D209C50002C34C /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3D99D2021D209C50002C34C /* fontawesome-webfont.ttf */; };
 		D3DF7B2321D35D7200A0F942 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF7B2221D35D7200A0F942 /* AddViewController.swift */; };
+		D3DF7B2521D3CEFC00A0F942 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF7B2421D3CEFC00A0F942 /* EditViewController.swift */; };
+		D3DF7B2721D3CF3000A0F942 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF7B2621D3CF3000A0F942 /* ShowViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		D3D99D1D21D207210002C34C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		D3D99D2021D209C50002C34C /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../../../../../Downloads/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		D3DF7B2221D35D7200A0F942 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		D3DF7B2421D3CEFC00A0F942 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		D3DF7B2621D3CF3000A0F942 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			children = (
 				D37F300621D0D5600056B45C /* ViewController.swift */,
 				D3DF7B2221D35D7200A0F942 /* AddViewController.swift */,
+				D3DF7B2421D3CEFC00A0F942 /* EditViewController.swift */,
+				D3DF7B2621D3CF3000A0F942 /* ShowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -309,7 +315,9 @@
 				D37F302721D127470056B45C /* ArticlePresenter.swift in Sources */,
 				D37F302321D11E720056B45C /* Category.swift in Sources */,
 				D3DF7B2321D35D7200A0F942 /* AddViewController.swift in Sources */,
+				D3DF7B2521D3CEFC00A0F942 /* EditViewController.swift in Sources */,
 				D37F302521D127350056B45C /* ArticlePresenterDelegate.swift in Sources */,
+				D3DF7B2721D3CF3000A0F942 /* ShowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
