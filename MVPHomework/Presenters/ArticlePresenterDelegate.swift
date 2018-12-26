@@ -10,4 +10,7 @@ import Foundation
 
 protocol ArticlePresenterDelegate {
     func responseArticles(articles: [Article])
+    func responseDelete(message: String)
+    func responseAdded()
+    func responseImage(url: String)
 }

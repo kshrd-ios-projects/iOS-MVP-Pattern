@@ -16,6 +16,8 @@ class Article {
     var category: Category?
     var image: String?
     
+    init(){}
+    
     init(json: JSON) {
         self.id = json["ID"].int
         self.title = json["TITLE"].string

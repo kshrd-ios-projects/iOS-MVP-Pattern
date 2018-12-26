@@ -8,33 +8,126 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class ArticleService {
-    let ARTICLE_URL = "http://api-ams.me/v1/api/articles"
+    let ARTICLE_BASE_URL = "http://api-ams.me/v1/api/articles"
+    let headers = [
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Basic QU1TQVBJQURNSU46QU1TQVBJUEBTU1dPUkQ="
+    ]
     var delegate: ArticleServiceDelegate?
     
     func getArticles(page: Int, limit: Int) {
         
-        var request = URLRequest(url: URL(string: "\(ARTICLE_URL)?page=\(page)&limit=\(limit)")!)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Basic QU1TQVBJQURNSU46QU1TQVBJUEBTU1dPUkQ=" , forHTTPHeaderField: "Authorization")
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if error == nil {
+        let urlRequest = "\(ARTICLE_BASE_URL)?page=\(page)&limit=\(limit)"
+        Alamofire.request(urlRequest, method: .get, encoding: JSONEncoding.default, headers: headers).responseData { (response) in
+            let result = response.result
+            if result.isSuccess {
                 
-                let json = try?  JSON(data: data!)
-                let articleJsonArray = json!["DATA"].array
-                
+                let json = try?  JSON(data: result.value!)
+                guard let articleJsonArray = json!["DATA"].array else {
+                    print("Error")
+                    return
+                }
+                if articleJsonArray.count == 0 {
+                    return
+                }
                 var articles = [Article]()
-                for articleJson in articleJsonArray! {
+                for articleJson in articleJsonArray {
                     articles.append(Article.init(json: articleJson))
                 }
+                
                 self.delegate?.responseArticles(articles: articles)
             }
-        }.resume()
-        
+        }
     }
+    
+    func deleteArticle(id: Int) {
+        let url = "\(ARTICLE_BASE_URL)/\(id)"
+        Alamofire.request(url, method: .delete, headers: headers).responseJSON { (response) in
+            guard response.result.error == nil else {
+                print("error calling DELETE")
+                if let error = response.result.error {
+                    print("Error: \(error)")
+                }
+                return
+            }
+            
+            if response.result.isSuccess {
+                self.delegate?.responseDelete(message: "Delete Successfully")
+            }
+        }
+    }
+    
+    func addArticle(article: Article) {
+        let url = ARTICLE_BASE_URL
+        let parameters: [String: Any] = [
+            "TITLE": article.title!,
+            "DESCRIPTION": article.description!,
+            "IMAGE": article.image!
+        ]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            if response.result.isSuccess {
+                self.delegate?.responseAdded()
+            }
+            
+            if response.result.isFailure {
+                print("Error =>>", response.result.error!)
+            }
+        }
+    }
+    
+    func uploadImage(image: UIImage) {
+        let url = "http://api-ams.me/v1/api/uploadfile/single"
+        Alamofire.upload(multipartFormData: { (data) in
+            data.append((image.jpegData(compressionQuality: 0.2))!, withName: "FILE", fileName: ".jpg", mimeType: "image/jpeg")
+        }, to: url, method: .post, headers: headers) { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (Progress) in
+                    print("Upload Progress: \(Progress.fractionCompleted)")
+                })
+                
+                upload.responseData(completionHandler: { (response) in
+                    let image = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any]
+                    guard let imageUrlString = image!["DATA"] else { return }
+                    let imageUrl = imageUrlString as! String
+                    self.delegate?.responseImage(url: imageUrl)
+                })
+                
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+        }
+    }
+    
+    //Upload File
+//    Alamofire.upload(multipartFormData: { (d) in
+//    d.append((image.jpegData(compressionQuality: 0.2))!, withName: "FILE", fileName: ".jpg", mimeType: "image/jpeg")
+//    }, to: "http://api-ams.me/v1/api/uploadfile/single", method : .post, headers : header) { (result) in
+//    switch result {
+//    case .success(request: let upload, _, _):
+//    upload.responseJSON(completionHandler: { (response) in
+//    if let data = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String:Any]{
+//    // Add to Article
+//    let parameters: [String: Any] = [
+//    "TITLE": article.title!,
+//    "DESCRIPTION": article.content!,
+//    "IMAGE": data["DATA"] as! String
+//    ]
+//    Alamofire.request(url, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: self.header).responseJSON { (res) in
+//    print(res.result.value!)
+//    self.delegate?.didAddArticle()
+//    }
+//    }
+//    })
+//    case .failure(let e):
+//    print(e)
+//    print("Upload failed!!!")
+//    }
+//    }
 }
+

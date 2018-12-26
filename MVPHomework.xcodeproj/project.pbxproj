@@ -19,6 +19,10 @@
 		D37F302321D11E720056B45C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F302221D11E720056B45C /* Category.swift */; };
 		D37F302521D127350056B45C /* ArticlePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F302421D127350056B45C /* ArticlePresenterDelegate.swift */; };
 		D37F302721D127470056B45C /* ArticlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F302621D127470056B45C /* ArticlePresenter.swift */; };
+		D3D99D1E21D207210002C34C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D99D1C21D207210002C34C /* TableViewCell.swift */; };
+		D3D99D1F21D207210002C34C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D99D1D21D207210002C34C /* TableViewCell.xib */; };
+		D3D99D2121D209C50002C34C /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3D99D2021D209C50002C34C /* fontawesome-webfont.ttf */; };
+		D3DF7B2321D35D7200A0F942 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DF7B2221D35D7200A0F942 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		D37F302221D11E720056B45C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D37F302421D127350056B45C /* ArticlePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePresenterDelegate.swift; sourceTree = "<group>"; };
 		D37F302621D127470056B45C /* ArticlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePresenter.swift; sourceTree = "<group>"; };
+		D3D99D1C21D207210002C34C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		D3D99D1D21D207210002C34C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		D3D99D2021D209C50002C34C /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../../../../../Downloads/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		D3DF7B2221D35D7200A0F942 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				D37F300621D0D5600056B45C /* ViewController.swift */,
+				D3DF7B2221D35D7200A0F942 /* AddViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,6 +148,7 @@
 		D37F301A21D11B9A0056B45C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D3D99D1B21D2069F0002C34C /* TableCustomCell */,
 				D37F300821D0D5600056B45C /* Main.storyboard */,
 				D37F300D21D0D5630056B45C /* LaunchScreen.storyboard */,
 			);
@@ -149,9 +159,19 @@
 			isa = PBXGroup;
 			children = (
 				D37F301021D0D5630056B45C /* Info.plist */,
+				D3D99D2021D209C50002C34C /* fontawesome-webfont.ttf */,
 				D37F300B21D0D5630056B45C /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D3D99D1B21D2069F0002C34C /* TableCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				D3D99D1C21D207210002C34C /* TableViewCell.swift */,
+				D3D99D1D21D207210002C34C /* TableViewCell.xib */,
+			);
+			path = TableCustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37F300F21D0D5630056B45C /* LaunchScreen.storyboard in Resources */,
+				D3D99D1F21D207210002C34C /* TableViewCell.xib in Resources */,
+				D3D99D2121D209C50002C34C /* fontawesome-webfont.ttf in Resources */,
 				D37F300C21D0D5630056B45C /* Assets.xcassets in Resources */,
 				D37F300A21D0D5600056B45C /* Main.storyboard in Resources */,
 			);
@@ -281,10 +303,12 @@
 				D37F300721D0D5600056B45C /* ViewController.swift in Sources */,
 				D37F300521D0D5600056B45C /* AppDelegate.swift in Sources */,
 				D37F301D21D11D5D0056B45C /* ArticleService.swift in Sources */,
+				D3D99D1E21D207210002C34C /* TableViewCell.swift in Sources */,
 				D37F301F21D11D7A0056B45C /* ArticleServiceDelegate.swift in Sources */,
 				D37F302121D11DE50056B45C /* Article.swift in Sources */,
 				D37F302721D127470056B45C /* ArticlePresenter.swift in Sources */,
 				D37F302321D11E720056B45C /* Category.swift in Sources */,
+				D3DF7B2321D35D7200A0F942 /* AddViewController.swift in Sources */,
 				D37F302521D127350056B45C /* ArticlePresenterDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GQF3KN6FJC;
 				INFOPLIST_FILE = "$(SRCROOT)/MVPHomework/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GQF3KN6FJC;
 				INFOPLIST_FILE = "$(SRCROOT)/MVPHomework/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

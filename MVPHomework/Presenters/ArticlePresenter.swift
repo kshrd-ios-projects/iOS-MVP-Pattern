@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ArticlePresenter: ArticleServiceDelegate {
     
@@ -24,5 +25,29 @@ class ArticlePresenter: ArticleServiceDelegate {
     
     func responseArticles(articles: [Article]) {
         self.delegate?.responseArticles(articles: articles)
+    }
+    
+    func deleteArticle(id: Int) {
+        articleService?.deleteArticle(id: id)
+    }
+    
+    func responseDelete(message: String) {
+        self.delegate?.responseDelete(message: message)
+    }
+    
+    func addArticle(article: Article) {
+        articleService?.addArticle(article: article)
+    }
+    
+    func responseAdded() {
+        self.delegate?.responseAdded()
+    }
+    
+    func uploadImage(image: UIImage) {
+        articleService?.uploadImage(image: image)
+    }
+    
+    func responseImage(url: String) {
+        self.delegate?.responseImage(url: url)
     }
 }
