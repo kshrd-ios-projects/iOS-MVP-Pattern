@@ -30,9 +30,6 @@ class ViewController: UIViewController, ArticlePresenterDelegate {
         super.viewDidLoad()
         
         refresher()
-        articlePresenter = ArticlePresenter()
-        articlePresenter?.delegate = self
-        fetchData()
         
         tableView.register(UINib.init(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: CELL_ID)
     }
@@ -40,6 +37,8 @@ class ViewController: UIViewController, ArticlePresenterDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.posts = []
         pagination = 1
+        articlePresenter = ArticlePresenter()
+        articlePresenter?.delegate = self
         fetchData()
     }
     

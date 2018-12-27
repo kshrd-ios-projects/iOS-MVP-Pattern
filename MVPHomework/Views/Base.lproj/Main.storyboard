@@ -46,8 +46,8 @@
                     <connections>
                         <outlet property="tableView" destination="K7a-qR-bCQ" id="KNR-h3-rhs"/>
                         <segue destination="fuR-cy-uma" kind="show" identifier="postFormSegue" id="Ifd-yE-IMd"/>
-                        <segue destination="aVM-x3-HZN" kind="showDetail" identifier="editFormSegue" id="FpK-LN-ZxY"/>
-                        <segue destination="jtz-1K-QUe" kind="showDetail" identifier="showArticleSegue" id="g5z-zm-i0G"/>
+                        <segue destination="aVM-x3-HZN" kind="show" identifier="editFormSegue" id="h3g-Ey-hbu"/>
+                        <segue destination="LgA-EG-lLa" kind="show" identifier="showArticleSegue" id="hn0-pC-Ctl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPm-ok-7bj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="1060.5697151424288"/>
+            <point key="canvasLocation" x="1049" y="1030"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="g5A-By-Qox">
@@ -209,20 +209,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4FF-Nv-BI8">
-                                <rect key="frame" x="16" y="95" width="343" height="30"/>
+                                <rect key="frame" x="16" y="139" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-0z-mrj">
-                                <rect key="frame" x="16" y="140" width="343" height="244"/>
+                                <rect key="frame" x="16" y="184" width="343" height="244"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="244" id="eXi-HP-u77"/>
                                     <constraint firstAttribute="width" constant="343" id="tp3-Wv-w0h"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-wJ-V5U">
-                                <rect key="frame" x="16" y="402" width="343" height="245"/>
+                                <rect key="frame" x="16" y="446" width="343" height="201"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDq-Kb-9Ho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2669.5999999999999" y="214.54272863568218"/>
+            <point key="canvasLocation" x="1897" y="397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M6G-Gz-iMc">
@@ -274,24 +274,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tp9-R7-xaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="278" y="99"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WhJ-8d-bjX">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jtz-1K-QUe" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UAi-IW-dV5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LgA-EG-lLa" kind="relationship" relationship="rootViewController" id="xvj-YT-xKD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b49-Zt-bOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1048.8" y="1060.1199400299852"/>
         </scene>
     </scenes>
 </document>
