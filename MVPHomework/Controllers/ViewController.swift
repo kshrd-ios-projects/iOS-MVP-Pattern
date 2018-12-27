@@ -91,7 +91,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            
+            print(self.posts[indexPath.row])
+            EditViewController.post = self.posts[indexPath.row]
             self.performSegue(withIdentifier: "editFormSegue", sender: self)
+            
         })
         editAction.image = UIImage(named: "icons8-edit-file-filled-32")
         editAction.backgroundColor = .blue
@@ -113,7 +117,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showArticleSegue", sender: self)
-        
         ShowViewController.post = posts[indexPath.row]
     }
     
