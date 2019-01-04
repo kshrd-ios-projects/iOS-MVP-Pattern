@@ -10,6 +10,9 @@ import UIKit
 import Kingfisher
 
 class ViewController: UIViewController, ArticlePresenterDelegate {
+    func responseUpdated() {
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     let CELL_ID = "cellResuableId"
     

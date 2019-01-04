@@ -50,4 +50,12 @@ class ArticlePresenter: ArticleServiceDelegate {
     func responseImage(url: String) {
         self.delegate?.responseImage(url: url)
     }
+    
+    func updateArticle(article: Article) {
+        articleService?.updateArticle(article: article)
+    }
+    
+    func responseUpdated() {
+        self.delegate?.responseUpdated()
+    }
 }

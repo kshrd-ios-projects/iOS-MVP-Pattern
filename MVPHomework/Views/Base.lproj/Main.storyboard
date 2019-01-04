@@ -209,20 +209,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4FF-Nv-BI8">
-                                <rect key="frame" x="16" y="139" width="343" height="30"/>
+                                <rect key="frame" x="16" y="74" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-0z-mrj">
-                                <rect key="frame" x="16" y="184" width="343" height="244"/>
+                                <rect key="frame" x="16" y="109" width="343" height="244"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="244" id="eXi-HP-u77"/>
                                     <constraint firstAttribute="width" constant="343" id="tp3-Wv-w0h"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ogS-wJ-V5U">
-                                <rect key="frame" x="16" y="446" width="343" height="201"/>
+                                <rect key="frame" x="16" y="366" width="343" height="201"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -233,19 +233,23 @@
                         <constraints>
                             <constraint firstItem="0VK-jr-Jd1" firstAttribute="trailing" secondItem="ogS-wJ-V5U" secondAttribute="trailing" constant="16" id="1pz-DL-oIw"/>
                             <constraint firstItem="2B4-0z-mrj" firstAttribute="leading" secondItem="0VK-jr-Jd1" secondAttribute="leading" constant="16" id="LUU-vI-kkh"/>
-                            <constraint firstItem="2B4-0z-mrj" firstAttribute="top" secondItem="4FF-Nv-BI8" secondAttribute="bottom" constant="15" id="MEI-0i-g46"/>
+                            <constraint firstItem="2B4-0z-mrj" firstAttribute="top" secondItem="4FF-Nv-BI8" secondAttribute="bottom" constant="5" id="MEI-0i-g46"/>
                             <constraint firstItem="0VK-jr-Jd1" firstAttribute="trailing" secondItem="2B4-0z-mrj" secondAttribute="trailing" constant="16" id="PRt-vc-r7S"/>
                             <constraint firstItem="4FF-Nv-BI8" firstAttribute="leading" secondItem="0VK-jr-Jd1" secondAttribute="leading" constant="16" id="UJd-eg-5eb"/>
                             <constraint firstItem="ogS-wJ-V5U" firstAttribute="leading" secondItem="0VK-jr-Jd1" secondAttribute="leading" constant="16" id="Ub4-wz-dJI"/>
-                            <constraint firstItem="4FF-Nv-BI8" firstAttribute="top" secondItem="0VK-jr-Jd1" secondAttribute="top" constant="75" id="bJB-OH-dqa"/>
-                            <constraint firstItem="ogS-wJ-V5U" firstAttribute="top" secondItem="2B4-0z-mrj" secondAttribute="bottom" constant="18" id="dqG-e8-OE0"/>
+                            <constraint firstItem="4FF-Nv-BI8" firstAttribute="top" secondItem="0VK-jr-Jd1" secondAttribute="top" constant="10" id="bJB-OH-dqa"/>
+                            <constraint firstItem="ogS-wJ-V5U" firstAttribute="top" secondItem="2B4-0z-mrj" secondAttribute="bottom" constant="13" id="dqG-e8-OE0"/>
                             <constraint firstItem="0VK-jr-Jd1" firstAttribute="trailing" secondItem="4FF-Nv-BI8" secondAttribute="trailing" constant="16" id="fIy-7u-E02"/>
-                            <constraint firstItem="0VK-jr-Jd1" firstAttribute="bottom" secondItem="ogS-wJ-V5U" secondAttribute="bottom" constant="20" id="fmi-cq-8VZ"/>
+                            <constraint firstItem="0VK-jr-Jd1" firstAttribute="bottom" secondItem="ogS-wJ-V5U" secondAttribute="bottom" constant="100" id="fmi-cq-8VZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0VK-jr-Jd1"/>
                     </view>
                     <navigationItem key="navigationItem" id="XU3-q9-sXn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2uv-NJ-e1p"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2uv-NJ-e1p">
+                            <connections>
+                                <action selector="updateArticle:" destination="aVM-x3-HZN" id="Fdg-Dx-F7M"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="ogS-wJ-V5U" id="QwM-fL-wgU"/>

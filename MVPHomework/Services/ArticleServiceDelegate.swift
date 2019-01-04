@@ -13,4 +13,5 @@ protocol ArticleServiceDelegate {
     func responseDelete(message: String)
     func responseAdded()
     func responseImage(url: String)
+    func responseUpdated()
 }

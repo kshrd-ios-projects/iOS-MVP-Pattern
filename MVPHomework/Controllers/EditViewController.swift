@@ -20,12 +20,13 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        articlePresenter = ArticlePresenter()
+        articlePresenter?.delegate = self
         loadPost()
     }
     
     fileprivate func loadPost() {
         if let p = EditViewController.post {
-            print(p)
             let string = p.image ?? "http://placehold.jp/375x250.png"
             let url = URL(string: string)
             let resource = ImageResource(downloadURL: url!)
@@ -34,4 +35,35 @@ class EditViewController: UIViewController {
             descriptionLabel.text = p.description
         }
     }
+    
+    @IBAction func updateArticle(_ sender: Any) {
+        let article = Article()
+        article.id = EditViewController.post.id
+        article.title = titleTextField.text
+        article.description = descriptionLabel.text
+        article.image = EditViewController.post.image
+        print("Update ===> ", article.description)
+        self.articlePresenter?.updateArticle(article: article)
+    }
+    
+}
+
+extension EditViewController: ArticlePresenterDelegate {
+    func responseArticles(articles: [Article]) {
+    }
+    
+    func responseDelete(message: String) {
+    }
+    
+    func responseAdded() {
+    }
+    
+    func responseImage(url: String) {
+    }
+    
+    func responseUpdated() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

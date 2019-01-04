@@ -24,8 +24,8 @@ class ShowViewController: UIViewController {
     fileprivate func loadPost() {
         if let p = ShowViewController.post {
             let string = p.image ?? "http://placehold.jp/375x250.png"
-            let url = URL(string: string)
-            let resource = ImageResource(downloadURL: url!)
+            guard let url = URL(string: string) else { return }
+            let resource = ImageResource(downloadURL: url)
             self.postImage.kf.setImage(with: resource, options: [.transition(.fade(0.2))])
             titleLabel.text = p.title
             descriptionLabel.text = p.description

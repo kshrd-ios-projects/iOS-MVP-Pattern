@@ -40,6 +40,9 @@ class AddViewController: UIViewController {
 }
 
 extension AddViewController: ArticlePresenterDelegate {
+    func responseUpdated() {
+    }
+    
     func responseArticles(articles: [Article]) {
     }
     

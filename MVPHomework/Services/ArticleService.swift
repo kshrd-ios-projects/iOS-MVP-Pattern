@@ -92,8 +92,8 @@ class ArticleService {
                 })
                 
                 upload.responseData(completionHandler: { (response) in
-                    let image = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any]
-                    guard let imageUrlString = image!["DATA"] else { return }
+                    guard let image = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any] else { return }
+                    guard let imageUrlString = image["DATA"] else { return }
                     let imageUrl = imageUrlString as! String
                     self.delegate?.responseImage(url: imageUrl)
                 })
@@ -104,8 +104,22 @@ class ArticleService {
         }
     }
     
-    func updateArticle(id: Int) {
-        let url = "\(ARTICLE_BASE_URL)/\(id)"
+    func updateArticle(article: Article) {
+        let url = "\(ARTICLE_BASE_URL)/\(article.id!)"
+        let parameters: [String: Any] = [
+            "TITLE": article.title!,
+            "DESCRIPTION": article.description!,
+            "IMAGE": article.image!
+        ]
+        Alamofire.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            if response.result.isSuccess {
+                self.delegate?.responseUpdated()
+            }
+            
+            if response.result.isFailure {
+                print("Error =>>", response.result.error!)
+            }
+        }
     }
 }
 
